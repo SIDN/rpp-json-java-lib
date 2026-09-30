@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rpp.example/schemas/ext-domain-extproperty1.json",
+
+  "rpp:extends": {
+    "https://rpp.example/rpp/schema.json#/$defs/domainObject.create": "#/$defs/ext.domain.create",
+    "https://rpp.example/rpp/schema.json#/$defs/domainObject.read": "#/$defs/ext.domain.read"
+  },
+
+  "$defs": {
+    "ext.domain.create": {
+      "type": "object",
+      "properties": {
+        "extProperty1": { "type": "string", "minLength": 1, "maxLength": 64 }
+      },
+      "required": ["extProperty1"]
+    },
+    "ext.domain.read": {
+      "type": "object",
+      "properties": {
+        "extProperty1": { "type": "string" }
+      }
+    }
+  }
+}

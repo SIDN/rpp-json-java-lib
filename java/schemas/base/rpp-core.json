@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rpp.example/rpp/schema.json",
+  "$defs": {
+    "contactObject.reference": {
+      "type": "object",
+      "properties": {
+        "@type": { "type": "string", "const": "contact" },
+        "id": { "type": "string" }
+      },
+      "required": ["@type", "id"]
+    },
+    "hostObject.reference": {
+      "type": "object",
+      "properties": {
+        "@type": { "type": "string", "const": "host" },
+        "hostName": { "type": "string", "format": "hostname" }
+      },
+      "required": ["@type", "hostName"]
+    },
+    "domainObject.create": {
+      "type": "object",
+      "properties": {
+        "@type": { "type": "string", "const": "domainName" },
+        "name": { "type": "string" },
+        "uName": { "type": "string" },
+        "uTable": { "type": "string" },
+        "registrant": { "$ref": "#/$defs/contactObject.reference" },
+        "nameservers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/hostObject.reference" }
+        }
+      },
+      "required": ["@type", "name"]
+    },
+    "domainObject.read": {
+      "type": "object",
+      "properties": {
+        "@type": { "type": "string", "const": "domainName" },
+        "name": { "type": "string" },
+        "registrant": { "$ref": "#/$defs/contactObject.reference" },
+        "nameservers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/hostObject.reference" }
+        },
+        "expiryDate": { "type": "string", "format": "date-time" }
+      },
+      "required": ["@type", "name"]
+    }
+  }
+}

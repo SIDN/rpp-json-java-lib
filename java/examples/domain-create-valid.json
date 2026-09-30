@@ -1,0 +1,9 @@
+{
+  "@type": "domainName",
+  "name": "example.example",
+  "registrant": { "@type": "contact", "id": "c-1234" },
+  "nameservers": [
+    { "@type": "host", "hostName": "ns1.example.net" }
+  ],
+  "extProperty1": "some value"
+}

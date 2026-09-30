@@ -1,0 +1,5 @@
+{
+  "@type": "domainName",
+  "name": "example.example",
+  "extProperty1": 42
+}

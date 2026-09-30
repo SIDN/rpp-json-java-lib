@@ -1,0 +1,6 @@
+{
+  "@type": "domainName",
+  "name": "example.example",
+  "extProperty1": "some value",
+  "extProperty2": "not declared by any supported extension"
+}
